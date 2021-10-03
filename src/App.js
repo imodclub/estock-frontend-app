@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Signin from './Pages/Signin/Signin'
+import Authfromgoogle from './Pages/Auth/Authfromgoogle'
+import Home from './Pages/Home/index'
+
+
 
 function App() {
+  // const token = localStorage.getItem('accessToken');
+  // if (!token) {
+  //   return <Signin />
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/signin">
+            <Signin />
+          </Route>
+          <Route path="/auth">
+            <Authfromgoogle />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
