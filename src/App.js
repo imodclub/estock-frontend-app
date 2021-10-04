@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Signin from './Pages/Signin/Signin'
 import Authfromgoogle from './Pages/Auth/Authfromgoogle'
 import Home from './Pages/Home/index'
+import User from './Pages/Users/User';
 
 
 
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/user">
+            <User/>
           </Route>
         </Switch>
       </BrowserRouter>
