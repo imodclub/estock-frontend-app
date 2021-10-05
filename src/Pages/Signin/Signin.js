@@ -12,6 +12,9 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios'
+
+const baseUrl = `http://localhost:3001/api/auth/signin`;
 
 function Copyright(props) {
   return (
@@ -32,6 +35,15 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
+
+async function loginUser(credentials) {
+  const res = await axios.post(baseUrl, {
+    body: JSON.stringify(credentials),
+    
+      headers: { 'Content-Type': 'application/json' }
+    
+  }).then(data => data.json())
+}
 
 export default function SignInSide() {
   const handleSubmit = (event) => {
