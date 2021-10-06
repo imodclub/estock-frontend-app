@@ -5,6 +5,7 @@ import Signin from './Pages/Signin/Signin'
 import Authfromgoogle from './Pages/Auth/Authfromgoogle'
 import Home from './Pages/Home/index'
 import User from './Pages/Users/User';
+import SignUp from './Pages/Signup/SignUp';
 
 
 
@@ -30,7 +31,10 @@ function App() {
             <Dashboard />
           </Route>
           <Route path="/user">
-            <User/>
+            <User />
+          </Route>
+          <Route path="/signUp">
+            <SignUp />
           </Route>
         </Switch>
       </BrowserRouter>
