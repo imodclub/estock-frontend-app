@@ -47,23 +47,14 @@ async function loginUser(credentials) {
 }
 
 export default function SignInSide() {
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const email = data.get('email')
-    const password = data.get('password')
-    const res = await loginUser({
-      email,
-      password
-    })
-    if ('email' in res) {
-      console.log("Found Email")
-    } else {
-      console.log("Email not found", res.message)
-    }
-    
     // eslint-disable-next-line no-console
-    
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
   return (
