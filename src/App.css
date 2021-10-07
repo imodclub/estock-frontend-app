@@ -1,8 +1,11 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap');
+
+*{
+  font-family: 'Kanit', sans-serif;
+  font-size: '14px';
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +38,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
