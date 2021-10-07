@@ -33,8 +33,8 @@ function App() {
           <Route path="/user">
             <User />
           </Route>
-          <Route path="/signUp">
-            <SignUp />
+          <Route path="/signup">
+            <SignUp name={'Kamol'} />
           </Route>
         </Switch>
       </BrowserRouter>
