@@ -30,19 +30,18 @@ function Login() {
         console.log('[Login Failure] res :', res)
     }
     return (
-        <>
-            <GoogleLogin
-                clientId={clientId}
-                buttonText="Login on UBU Gmail"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={'single_host_origin'}
-                style={{ maginTop: '100px' }}
-                isSignedIn={false}
-            />
-        </>
-        
-    )
+      <>
+        <GoogleLogin
+          clientId={clientId}
+          buttonText="Login on UBU Gmail"
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          cookiePolicy={"single_host_origin"}
+          style={{ maginTop: "100px" }}
+          isSignedIn={false}
+        />
+      </>
+    );
 }
 
 
