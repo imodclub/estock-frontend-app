@@ -12,21 +12,47 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from '../../Components/Copyright'
 import LoginGG from '../../Components/LoginGG'
+import { useState } from 'react';
 
 
 const theme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+   const [firstname, setFirstName] = useState();
+   const [lastname, setLastName] = useState();
+   const [email, setEmail] = useState();
+   const [password, setPassword] = useState();
+  
+  //react hook
+  const inputFirstName = (event) => {
+    setFirstName(event.target.value)
+  }
+  const inputLastName = (event) => {
+      setLastName(event.target.value);
+  }
+  const inputEmail = (event) => {
+    setEmail(event.target.value);
+  }
+  const inputPassword = (event) => {
+    setPassword(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const itemData = {
+      firstname: firstname,
+      lastname: lastname,
+      email:email,
+      password:password
+    }
+    console.log(itemData);
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setPassword('')
+  };
+  
+  
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -61,6 +87,8 @@ export default function SignUp() {
                   id="firstName"
                   label="ชื่อ"
                   autoFocus
+                  onChange={inputFirstName}
+                  value={firstname}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -71,6 +99,8 @@ export default function SignUp() {
                   label="นามสกุล"
                   name="lastName"
                   autoComplete="lname"
+                  onChange={inputLastName}
+                  value={lastname}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -81,6 +111,8 @@ export default function SignUp() {
                   label="Email UBU Address"
                   name="email"
                   autoComplete="email"
+                  onChange={inputEmail}
+                  value={email}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -92,6 +124,8 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={inputPassword}
+                  value={password}
                 />
               </Grid>
             </Grid>
@@ -105,7 +139,7 @@ export default function SignUp() {
             </Button>
             <Grid container>
               <Grid item xs>
-               <LoginGG />
+                <LoginGG />
               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
@@ -113,7 +147,6 @@ export default function SignUp() {
                 </Link>
               </Grid>
             </Grid>
-            
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
