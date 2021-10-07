@@ -44,7 +44,7 @@ const tiers = [
     buttonVariant: 'contained',
   },
   {
-    title: 'Enterprise',
+    title: 'ระบบที่ยังไม่คิด',
     price: '30',
     description: [
       '50 users included',
