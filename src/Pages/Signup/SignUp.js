@@ -87,7 +87,7 @@ export default function SignUp() {
                   id="firstName"
                   label="ชื่อ"
                   autoFocus
-                  onChange={inputFirstName}
+                  onChange={this.inputFirstName}
                   value={firstname}
                 />
               </Grid>

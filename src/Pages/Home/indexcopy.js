@@ -22,14 +22,39 @@ const tiers = [
     title: 'ระบบคลังวัสดุ',
     price: '0',
     description: [
-      'ระบบคลังวัสดุ',
-      'คณะวิทยาศาสตร์',
-      'มหาวิทยาลัยอุบลราชธานี',
-      'กรุณา Login ด้วย บัญชี UBU',
+      '10 users included',
+      '2 GB of storage',
+      'Help center access',
+      'Email support',
     ],
     buttonText: 'Sign up for free',
     buttonVariant: 'outlined',
-  }
+  },
+  {
+    title: 'ระบบครุภัณฑ์',
+    subheader: 'ยังไม่เริ่ม',
+    price: '0',
+    description: [
+      '20 users included',
+      '10 GB of storage',
+      'Help center access',
+      'Priority email support',
+    ],
+    buttonText: 'Get started',
+    buttonVariant: 'contained',
+  },
+  {
+    title: 'ระบบที่ยังไม่คิด',
+    price: '30',
+    description: [
+      '50 users included',
+      '30 GB of storage',
+      'Help center access',
+      'Phone & email support',
+    ],
+    buttonText: 'Contact us',
+    buttonVariant: 'outlined',
+  },
 ];
 
 const footers = [
@@ -66,7 +91,7 @@ function PricingContent() {
   return (
     <React.Fragment>
       <GlobalStyles
-        styles={{ ul: { margin: 0, padding: 0, listStyle: "none" } }}
+        styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }}
       />
       <CssBaseline />
       <AppBar
@@ -75,7 +100,7 @@ function PricingContent() {
         elevation={0}
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
-        <Toolbar sx={{ flexWrap: "wrap" }}>
+        <Toolbar sx={{ flexWrap: 'wrap' }}>
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
             Science UBU Office
           </Typography>
@@ -89,9 +114,9 @@ function PricingContent() {
               Support
             </Link>
           </nav>
-          {/* <Button href="#" variant="" sx={{ my: 1, mx: 1.5 }}>
+          <Button href="#" variant="" sx={{ my: 1, mx: 1.5 }}>
             <LoginGG />
-          </Button> */}
+          </Button>
         </Toolbar>
       </AppBar>
       {/* Hero unit */}
@@ -121,27 +146,28 @@ function PricingContent() {
       </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
-        <Grid container spacing={2} alignItems="flex-end">
+        <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
             <Grid
               item
-              xs="auto"
-             // sm={tier.title === "Enterprise" ? 12 : 6}
+              key={tier.title}
+              xs={12}
+              sm={tier.title === 'Enterprise' ? 12 : 6}
               md={4}
             >
               <Card>
                 <CardHeader
                   title={tier.title}
                   subheader={tier.subheader}
-                  titleTypographyProps={{ align: "center" }}
-                  action={tier.title === "Pro" ? <StarIcon /> : null}
+                  titleTypographyProps={{ align: 'center' }}
+                  action={tier.title === 'Pro' ? <StarIcon /> : null}
                   subheaderTypographyProps={{
-                    align: "center",
+                    align: 'center',
                   }}
                   sx={{
                     backgroundColor: (theme) =>
-                      theme.palette.mode === "light"
+                      theme.palette.mode === 'light'
                         ? theme.palette.grey[200]
                         : theme.palette.grey[700],
                   }}
@@ -149,12 +175,23 @@ function PricingContent() {
                 <CardContent>
                   <Box
                     sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "baseline",
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'baseline',
                       mb: 2,
                     }}
-                  ></Box>
+                  >
+                    <Typography
+                      component="h2"
+                      variant="h3"
+                      color="text.primary"
+                    >
+                      ${tier.price}
+                    </Typography>
+                    <Typography variant="h6" color="text.secondary">
+                      /mo
+                    </Typography>
+                  </Box>
                   <ul>
                     {tier.description.map((line) => (
                       <Typography
@@ -169,8 +206,8 @@ function PricingContent() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button href="#" variant="" sx={{ my: 1, mx: 1.5 }} align="center">
-                    <LoginGG />
+                  <Button fullWidth variant={tier.buttonVariant}>
+                    {tier.buttonText}
                   </Button>
                 </CardActions>
               </Card>
